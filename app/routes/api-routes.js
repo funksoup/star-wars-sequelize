@@ -19,24 +19,20 @@ module.exports = function(app) {
     if (req.params.characters) {
 
       // Then display the JSON for ONLY that character.
-      // (Note how we're using the ORM here to run our searches)
-      // chars.searchCharacter(req.params.characters, function(data) {
-
       Characters.findAll({
         where: {routeName: req.params.characters}
       })
         .then(data => {
-          console.log('data-searched:', data[0]);   
-          res.json(data[0]);
+          // console.log('data-searched:', data[0]);   
+          res.json(data);
           
         })
         .catch(e => {throw e});
 
-    } else {
-      // Otherwise display the data for all of the characters.
-      // (Note how we're using the ORM here to run our searches)
-      // chars.allCharacters(function(data) {
 
+    } else {
+      
+      // Otherwise display the data for all of the characters.
       Characters.findAll({})
         .then(data => {
           // console.log('all-data: ', data);

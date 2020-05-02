@@ -13,8 +13,8 @@ Project is created with:
 * JavaScript
 * Node.js
 * Express
+* MySQL
 * Sequelize
-
 
 
 ## Usage

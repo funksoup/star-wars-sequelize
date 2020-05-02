@@ -25,15 +25,20 @@ $("#search-btn").on("click", function() {
       $("#well-section").append("<h2> The force is not strong with this one. Your character was not found. </h2>");
     }
     else {
-      // otherwise
-      // append the character name
-      $("#well-section").append("<h2>" + data.name + "</h2>");
-      // the role
-      $("#well-section").append("<h3>Role: " + data.role + "</h3>");
-      // the age
-      $("#well-section").append("<h3>Age: " + data.age + "</h3>");
-      // and the force points
-      $("#well-section").append("<h3>Force Points: " + data.forcePoints + "</h3>");
+      // iterate through data object so all search results with same name are displayed
+      for(let i=0; i< data.length; i++) {
+        // otherwise
+        // append the character name
+        $("#well-section").append("<h2>" + data[i].name + "</h2>");
+        // the role
+        $("#well-section").append("<h3>Role: " + data[i].role + "</h3>");
+        // the age
+        $("#well-section").append("<h3>Age: " + data[i].age + "</h3>");
+        // and the force points
+        $("#well-section").append("<h3>Force Points: " + data[i].forcePoints + "</h3>");
+
+      }
+    
     }
   });
 });
